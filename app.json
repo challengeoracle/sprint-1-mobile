@@ -1,15 +1,15 @@
 {
     "expo": {
-        "name": "bike",
-        "slug": "bike",
+        "name": "medix",
+        "slug": "medix",
         "version": "1.0.0",
         "orientation": "portrait",
-        "icon": "./assets/images/icon.png",
-        "scheme": "bike",
+        "icon": "./assets/images/medix-logo.png",
+        "scheme": "medix",
         "userInterfaceStyle": "automatic",
         "newArchEnabled": true,
         "splash": {
-            "image": "./assets/images/splash-icon.png",
+            "image": "./assets/images/medix-logo.png",
             "resizeMode": "contain",
             "backgroundColor": "#ffffff"
         },
@@ -19,7 +19,7 @@
         "android": {
             "softwareKeyboardLayoutMode": "pan",
             "adaptiveIcon": {
-                "foregroundImage": "./assets/images/adaptive-icon.png",
+                "foregroundImage": "./assets/images/medix-logo.png",
                 "backgroundColor": "#ffffff"
             },
             "edgeToEdgeEnabled": true,
@@ -28,7 +28,7 @@
         "web": {
             "bundler": "metro",
             "output": "static",
-            "favicon": "./assets/images/favicon.png"
+            "favicon": "./assets/images/medix-logo.png"
         },
         "plugins": ["expo-router"],
         "experiments": {
