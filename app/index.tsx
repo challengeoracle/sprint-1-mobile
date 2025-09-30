@@ -41,14 +41,8 @@ const IndexScreen = () => {
             Alert.alert("Usuário ou senha inválidos");
         }
     }
-
-    async function onSignUp(data: LoginFormData) {
-        const plainUsers = await AsyncStorage.getItem("@usersDB");
-        const users = JSON.parse(plainUsers || "[]");
-        const newUsers = [...users, data];
-        await AsyncStorage.setItem("@usersDB", JSON.stringify(newUsers));
-        Alert.alert("Cadastro realizado com sucesso!");
-    }
+    
+    
 
     return (
         <SafeAreaView className="flex-1 bg-medix-50 ">
@@ -71,7 +65,8 @@ const IndexScreen = () => {
                         <Text className="text-white text-base font-semibold">Entrar</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={handleSubmit(onSignUp)} activeOpacity={0.8} className="bg-medix-500 py-3 rounded-lg items-center mt-2">
+                    {/* Cadastro */}
+                    <TouchableOpacity onPress={() => router.push('/cadastro')} activeOpacity={0.8} className="bg-medix-500 py-3 rounded-lg items-center mt-2">
                         <Text className="text-white text-base font-semibold">Cadastrar</Text>
                     </TouchableOpacity>
                 </View>
