@@ -1,12 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
 import { Alert } from "react-native";
-import { CadastroFormData } from "../types/cadastroTypes"; // <-- Caminho atualizado
+import { CadastroFormData } from "../types/cadastroTypes";
 
-// Função responsável por registrar um novo usuáriom, verifica se o usuário já existe e, caso não, o salva no AsyncStorage.
 export async function handleCadastro(data: CadastroFormData) {
     try {
-        // Verifica se o usuário já existe
         const plainUsers = await AsyncStorage.getItem("@usersDB");
         const users = JSON.parse(plainUsers || "[]");
         const userExists = users.some((user: { email: string }) => user.email === data.email);
@@ -16,8 +14,16 @@ export async function handleCadastro(data: CadastroFormData) {
             return;
         }
 
-        // Adiciona o novo usuário à lista e salva no AsyncStorage
-        const newUser = { email: data.email, password: data.senha };
+        // Montando um objeto newUser com as informações
+        const newUser = {
+            nomeCompleto: data.nomeCompleto,
+            email: data.email,
+            password: data.senha,
+            cpf: data.cpf,
+            dataNascimento: data.dataNascimento,
+            telefone: data.telefone,
+        };
+
         const updatedUsers = [...users, newUser];
         await AsyncStorage.setItem("@usersDB", JSON.stringify(updatedUsers));
 
