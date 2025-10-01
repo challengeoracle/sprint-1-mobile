@@ -33,3 +33,12 @@ export const formatTelefone = (text: string) => {
             .slice(0, 14);
     }
 };
+
+// Função para extrair as iniciais do nome
+export const getInitials = (name: string) => {
+    if (!name) return "?";
+    const names = name.split(" ");
+    const firstInitial = names[0]?.[0] || "";
+    const lastInitial = names.length > 1 ? names[names.length - 1]?.[0] : "";
+    return `${firstInitial}${lastInitial}`.toUpperCase();
+};
