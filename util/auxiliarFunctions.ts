@@ -42,3 +42,23 @@ export const getInitials = (name: string) => {
     const lastInitial = names.length > 1 ? names[names.length - 1]?.[0] : "";
     return `${firstInitial}${lastInitial}`.toUpperCase();
 };
+
+// Função para calcular a idade a partir da data de nascimento no formato DD/MM/AAAA
+export const calculateAge = (birthDate: string) => {
+    if (!birthDate || !/^\d{2}\/\d{2}\/\d{4}$/.test(birthDate)) return "";
+    const today = new Date();
+    const [day, month, year] = birthDate.split("/").map(Number);
+    const birthDateObj = new Date(year, month - 1, day);
+    let age = today.getFullYear() - birthDateObj.getFullYear();
+    const monthDiff = today.getMonth() - birthDateObj.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
+        age--;
+    }
+    return `${age} anos`;
+};
+
+// Função para esconder o CPF e exibir apenas o final
+export const maskCPF = (cpf: string) => {
+    if (!cpf) return "";
+    return cpf.replace(/(\d{3})\.(\d{3})\.(\d{3})-(\d{2})/, "***.***.***-$4");
+};
