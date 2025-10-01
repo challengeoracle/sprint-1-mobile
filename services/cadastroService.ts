@@ -7,14 +7,22 @@ export async function handleCadastro(data: CadastroFormData) {
     try {
         const plainUsers = await AsyncStorage.getItem("@usersDB");
         const users = JSON.parse(plainUsers || "[]");
-        const userExists = users.some((user: { email: string }) => user.email === data.email);
 
-        if (userExists) {
+        // Verifica se o email já está em uso
+        const emailExists = users.some((user: { email: string }) => user.email === data.email);
+        if (emailExists) {
             Alert.alert("Erro", "Este e-mail já está cadastrado.");
             return;
         }
 
-        // Montando um objeto newUser com as informações
+        // Verifica se o CPF já está em uso
+        const cpfExists = users.some((user: { cpf: string }) => user.cpf === data.cpf);
+        if (cpfExists) {
+            Alert.alert("Erro", "Este CPF já está cadastrado.");
+            return;
+        }
+
+        // Criando um novo objeto de user para salvar
         const newUser = {
             nomeCompleto: data.nomeCompleto,
             email: data.email,
