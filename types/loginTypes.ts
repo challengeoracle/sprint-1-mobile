@@ -14,3 +14,11 @@ export type StoredUser = {
     email: string;
     password?: string;
 };
+
+// Depois eu penso em como usar uma interface só para os dois, agora por praticidade vai essa aqui pra usar na HOME
+export default interface UserData {
+    nomeCompleto: string;
+    email: string;
+    cpf: string;
+    dataNascimento: string;
+}
