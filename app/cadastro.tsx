@@ -1,7 +1,7 @@
 import { ControlledInput } from "@/components/ControlledInput";
 import { handleCadastro } from "@/services/cadastroService";
 import { CadastroFormData, cadastroSchema } from "@/types/cadastroTypes";
-import { formatCPF, formatDataNascimento, formatTelefone } from "@/util/formatters";
+import { formatCPF, formatDataNascimento, formatTelefone } from "@/util/auxiliarFunctions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
