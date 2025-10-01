@@ -18,6 +18,12 @@ const RootLayout = () => {
                         headerShown: false,
                     }}
                 />
+                <Stack.Screen
+                    name="chatbot"
+                    options={{
+                        headerShown: false,
+                    }}
+                />
 
                 {/* Tela de cadastro de paciente (cadastro) */}
                 <Stack.Screen

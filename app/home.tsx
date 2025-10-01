@@ -64,7 +64,7 @@ const Home = () => {
                     <QuickActionButton icon="map-pin" label="Unidades" onPress={() => console.log("Buscar Unidades")} />
                     <QuickActionButton icon="calendar" label="Agendar" onPress={() => console.log("Agendar Consulta")} />
                     <QuickActionButton icon="file-text" label="Resultados" onPress={() => console.log("Ver Resultados")} />
-                    <QuickActionButton icon="alert-circle" label="Emergência" onPress={() => console.log("Emergência")} />
+                    <QuickActionButton icon="smile" label="Medix AI" onPress={() => router.replace("/chatbot")} />
                 </View>
 
                 {/* Card de resumo do perfil do usuário - ainda não implementado, talvez mudar isso*/}
