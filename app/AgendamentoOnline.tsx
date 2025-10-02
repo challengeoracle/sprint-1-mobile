@@ -16,12 +16,9 @@ import {
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { Feather } from '@expo/vector-icons';
-// =================================================================
-// PASSO 1: Importar o router do Expo
-// =================================================================
 import { router } from 'expo-router';
 
-// --- Definição dos Tipos para as Props ---
+// --- Tipos para as Props do Componente ---
 type Item = {
     label: string;
     value: string;
@@ -34,13 +31,13 @@ type PickerInputProps = {
     items: Item[];
 };
 
-// --- Componente customizado para o seletor ---
+// --- Componente de seletor customizado (multiplataforma) ---
 const PickerInput = ({ label, selectedValue, onValueChange, items }: PickerInputProps) => {
-    // ... (O componente PickerInput continua igual)
     const [modalVisible, setModalVisible] = useState(false);
     
     const displayValue = selectedValue ? items.find(item => item.value === selectedValue)?.label : label;
 
+    // Lógica para Android: usa o Picker nativo
     if (Platform.OS === 'android') {
         return (
             <View style={styles.pickerContainer}>
@@ -58,6 +55,7 @@ const PickerInput = ({ label, selectedValue, onValueChange, items }: PickerInput
         );
     }
     
+    // Lógica para iOS: usa um Modal para uma melhor UX
     return (
         <>
             <TouchableOpacity 
@@ -103,29 +101,25 @@ const PickerInput = ({ label, selectedValue, onValueChange, items }: PickerInput
 };
 
 
-// --- Tela Principal ---
+// --- Tela Principal de Agendamento ---
 const AgendamentoOnline = () => {
     const [hospital, setHospital] = useState<string | undefined>();
     const [medico, setMedico] = useState<string | undefined>();
     const [especialidade, setEspecialidade] = useState<string | undefined>();
     const [modalidade, setModalidade] = useState<string | undefined>();
 
-    // =================================================================
-    // PASSO 2: Atualizar a função de confirmação
-    // =================================================================
     const handleConfirmarAgendamento = () => {
-        // Validação para ver se todos os campos estão preenchidos
+        // Valida se todos os campos foram preenchidos
         if (!hospital || !medico || !especialidade || !modalidade) {
             Alert.alert("Campos incompletos", "Por favor, selecione todas as opções.");
             return;
         }
 
-        // Se estiver tudo certo, exibe o alerta de sucesso
+        // Exibe o alerta de sucesso e redireciona ao pressionar "OK"
         Alert.alert(
             "Agendamento Confirmado!",
             "Sua consulta foi agendada com sucesso.",
             [
-                // Adicionamos um botão "OK" que, ao ser pressionado, volta para a tela anterior
                 {
                     text: "OK",
                     onPress: () => router.back(),
@@ -185,7 +179,7 @@ const AgendamentoOnline = () => {
     );
 };
 
-// --- Estilos ---
+// --- Guia de Estilos para o StyleSheet ---
 interface StyleGuide {
     safeArea: ViewStyle;
     scrollView: ViewStyle;
