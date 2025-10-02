@@ -42,6 +42,16 @@ const RootLayout = () => {
                         header: () => <Header title="Home" leftIconName="menu" onPressLeft={() => console.log("Ação para abrir o menu lateral")} rightIconName="bell" onPressRight={() => console.log("Navegar para a tela de notificações")} />,
                     }}
                 />
+
+                {/* Tela de agendamento online */}
+                <Stack.Screen
+                    name="AgendamentoOnline"
+                    options={{
+                        headerShown: true,
+                        header: () => <Header title="Agendamento Online" leftIconName="arrow-left" onPressLeft={() => router.back()} />,
+                    }}
+                />
+
             </Stack>
         </SafeAreaProvider>
     );

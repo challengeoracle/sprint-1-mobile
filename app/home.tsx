@@ -62,7 +62,7 @@ const Home = () => {
                 {/* Ações rápidas do aplicativo - ainda não implementado */}
                 <View className="flex-row justify-around mb-8">
                     <QuickActionButton icon="map-pin" label="Unidades" onPress={() => console.log("Buscar Unidades")} />
-                    <QuickActionButton icon="calendar" label="Agendar" onPress={() => console.log("Agendar Consulta")} />
+                    <QuickActionButton icon="calendar" label="Agendar" onPress={() => router.push("/AgendamentoOnline")} />
                     <QuickActionButton icon="file-text" label="Resultados" onPress={() => console.log("Ver Resultados")} />
                     <QuickActionButton icon="smile" label="Medix AI" onPress={() => router.replace("/chatbot")} />
                 </View>
