@@ -1,4 +1,4 @@
-import CadastroForm from "@/components/forms/CadastroForm";
+import CadastroForm from "@/components/forms/CadastroForm"; // Importa o nosso novo formulário
 import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
 
 const Cadastro = () => {

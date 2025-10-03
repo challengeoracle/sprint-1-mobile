@@ -9,7 +9,7 @@ const RootLayout = () => {
 
     return (
         <SafeAreaProvider>
-            <StatusBar barStyle="dark-content" backgroundColor="#F4F9F9" />
+            <StatusBar barStyle="dark-content" backgroundColor="transparent" />
             <Stack>
                 {/* Tela de login (index) */}
                 <Stack.Screen
