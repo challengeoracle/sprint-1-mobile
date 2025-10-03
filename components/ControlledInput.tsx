@@ -1,5 +1,4 @@
 import inputControllerProps from "@/types/ControlledInputTypes";
-import React from "react";
 import { Controller, FieldValues } from "react-hook-form";
 import { Text, TextInput, View } from "react-native";
 
