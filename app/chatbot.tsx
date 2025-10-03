@@ -1,7 +1,6 @@
 import { useChat } from "@/hooks/useChat";
 import { Feather } from "@expo/vector-icons";
-import { router } from "expo-router";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ActivityIndicator, FlatList, KeyboardAvoidingView, Platform, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const ChatScreen = () => {
@@ -18,17 +17,6 @@ const ChatScreen = () => {
 
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} className="flex-1" keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}>
-            {/* Cabeçalho */}
-            <View className="flex-row items-center p-4 border-b border-medix-200 bg-white">
-                <TouchableOpacity onPress={() => router.back()}>
-                    <Feather name="chevron-left" size={28} color="#004D4D" />
-                </TouchableOpacity>
-                <View className="flex-1 items-center">
-                    <Text className="text-xl font-bold text-medix-900">Assistente Virtual</Text>
-                </View>
-                <View className="w-7" />
-            </View>
-
             {/* Disclaimer */}
             <View className="bg-yellow-100 p-3 mx-4 mt-4 rounded-lg">
                 <Text className="text-yellow-800 text-xs text-center">Esta é uma IA informativa. As suas respostas não substituem uma consulta médica. Em caso de emergência, procure um hospital.</Text>
