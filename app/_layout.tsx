@@ -40,16 +40,25 @@ const RootLayout = () => {
                     name="home"
                     options={{
                         headerShown: true,
-                        header: () => <Header title="Home" leftIconName="menu" onPressLeft={() => console.log("Ação para abrir o menu lateral")} rightIconName="bell" onPressRight={() => console.log("Navegar para a tela de notificações")} />,
+                        header: () => <Header title="Home" leftIconName="menu" onPressLeft={() => console.log("Ação para abrir o menu lateral")} rightIconName="bell" onPressRight={() => router.push("/notificacoes")} />,
                     }}
                 />
 
-                {/* Tela de agendamento online */}
+                {/* Tela de agendamentos */}
                 <Stack.Screen
                     name="agendamento"
                     options={{
                         headerShown: true,
                         header: () => <Header title="Agendar Serviços" leftIconName="arrow-left" onPressLeft={() => router.back()} />,
+                    }}
+                />
+
+                {/* Tela de notificações */}
+                <Stack.Screen
+                    name="notificacoes"
+                    options={{
+                        headerShown: true,
+                        header: () => <Header title="Notificações" leftIconName="arrow-left" onPressLeft={() => router.back()} />,
                     }}
                 />
             </Stack>
