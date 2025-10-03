@@ -1,4 +1,4 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { Stack, useRouter } from "expo-router";
 import { StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -21,7 +21,8 @@ const RootLayout = () => {
                 <Stack.Screen
                     name="chatbot"
                     options={{
-                        headerShown: false,
+                        headerShown: true,
+                        header: () => <Header title="Medix AI" leftIconName="arrow-left" onPressLeft={() => router.back()} />,
                     }}
                 />
 
@@ -45,13 +46,12 @@ const RootLayout = () => {
 
                 {/* Tela de agendamento online */}
                 <Stack.Screen
-                    name="AgendamentoOnline"
+                    name="agendamento"
                     options={{
                         headerShown: true,
-                        header: () => <Header title="Agendamento Online" leftIconName="arrow-left" onPressLeft={() => router.back()} />,
+                        header: () => <Header title="Agendar Serviços" leftIconName="arrow-left" onPressLeft={() => router.back()} />,
                     }}
                 />
-
             </Stack>
         </SafeAreaProvider>
     );
