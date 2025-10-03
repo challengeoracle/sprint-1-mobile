@@ -1,6 +1,5 @@
 import HeaderProps from "@/types/headerProps";
 import { Feather } from "@expo/vector-icons";
-import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -17,7 +16,7 @@ const Header = ({
     const insets = useSafeAreaInsets();
 
     return (
-        <View style={[{ paddingTop: insets.top, paddingBottom: 0 }, style]} className="flex flex-row items-center justify-between bg-medix-50 px-4 border-b border-medix-200">
+        <View style={[{ paddingTop: insets.top, paddingBottom: 0 }, style]} className="flex flex-row items-center justify-between px-4 border-b border-medix-200">
             {/* Lado Esquerdo: Ícone de Menu */}
             <View className="h-16 w-10 justify-center items-center">
                 {onPressLeft && (
