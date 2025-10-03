@@ -5,7 +5,7 @@ import { calculateAge, getInitials, maskCPF } from "@/util/auxiliarFunctions";
 import { Feather } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Alert, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const Home = () => {
@@ -62,9 +62,9 @@ const Home = () => {
                 {/* Ações rápidas do aplicativo - ainda não implementado */}
                 <View className="flex-row justify-around mb-8">
                     <QuickActionButton icon="map-pin" label="Unidades" onPress={() => console.log("Buscar Unidades")} />
-                    <QuickActionButton icon="calendar" label="Agendar" onPress={() => router.push("/AgendamentoOnline")} />
+                    <QuickActionButton icon="calendar" label="Agendar" onPress={() => router.push("/agendamento")} />
                     <QuickActionButton icon="file-text" label="Resultados" onPress={() => console.log("Ver Resultados")} />
-                    <QuickActionButton icon="smile" label="Medix AI" onPress={() => router.replace("/chatbot")} />
+                    <QuickActionButton icon="smile" label="Medix AI" onPress={() => router.push("/chatbot")} />
                 </View>
 
                 {/* Card de resumo do perfil do usuário - ainda não implementado, talvez mudar isso*/}
